@@ -22,7 +22,7 @@ const {
 } = Components;
 
 // We export it for the unit tests.
-export const BEZOS_NET_WORTH = 120000000000000;
+export const BEZOS_NET_WORTH = 115500000000;
 
 export class MainPageRaw extends React.Component {     
     constructor(props) {
@@ -33,16 +33,16 @@ export class MainPageRaw extends React.Component {
       };
     }
 
-    onComputeMoneyLeft = () => {
-        const { tradedItems } = this.state;
-        let totalMoneySpent = 0;
-        for(let i = 0; i < tradedItems.length; i += 1) {
-            totalMoneySpent += tradedItems[i].price * tradedItems[i].quantity;
-        }
-        this.setState({
-            moneyLeft: BEZOS_NET_WORTH - totalMoneySpent,
-        });
+  onComputeMoneyLeft = () => {
+    const { tradedItems } = this.state;
+    let totalMoneySpent = 0;
+    for (let i = 0; i < tradedItems.length; i += 1) {
+      totalMoneySpent += tradedItems[i].price * tradedItems[i].quantity;
     }
+    this.setState({
+      moneyLeft: BEZOS_NET_WORTH - totalMoneySpent,
+    });
+  };
 
     onTradedItem = (item) => {
         const { tradedItems } = this.state;
