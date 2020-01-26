@@ -1,21 +1,15 @@
-## Spend Jeff Bezos Money - [![CircleCI](https://circleci.com/gh/germmand/spend-jeff-bezos-money.svg?style=shield)](https://circleci.com/gh/germmand/spend-jeff-bezos-money)
+## Guillotine Charity
 
-This is just a simple website built with React where you can pretty much see how much stuff you can buy using Jeff Bezos' net worth.
-Okay, okay, I get it, you might be thinking: "Aight, but what's the point of this?" **None**; there's no point. I was just bored and said: "You know what? Let's build this 'cuz why not?"
+This website built with React showas you just how many good things could happen by spending the money of the top 1%
 
 ## Tech Stack
 - [React](https://reactjs.org/)
 - [Netlify](https://www.netlify.com/)
 
-There's a live demo in: https://spend-jeff-bezos-money.netlify.com/
-
-Netlify builds automatically from `master` so your changes are a single pull request away from going live!
+There's a live demo in: [WIP]()
 
 ## Getting Involved
 Read the [Contributing](./CONTRIBUTING.md) guide to find out about how you can build and contribute to this project.
 
 ## Credits
-In case you've noticed, yes, this is a cheap version of [Spend Bill Gates' Money](https://neal.fun/spend/)
-
-
-P.S: I should've used [Gatsby](https://www.gatsbyjs.org/) for this but oh well...
+Forked from (Spend Jeff Bezos' Money)[https://github.com/germmand/spend-jeff-bezos-money?files=1}, who took the idea from [Spend Bill Gates' Money](https://neal.fun/spend/)
