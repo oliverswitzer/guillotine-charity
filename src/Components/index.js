@@ -4,8 +4,8 @@ import Product from './Product';
 import TradedItem from './TradedItem';
 
 export default {
-    BezosHeader,
-    MoneyLeftWrapper,
-    Product,
-    TradedItem,
+  BezosHeader,
+  MoneyLeftWrapper,
+  Product,
+  TradedItem
 };

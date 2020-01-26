@@ -16,10 +16,7 @@ exports[`TradedItem Component matches snapshot 1`] = `
   <h5
     className="MuiTypography-root MuiTypography-h5 MuiTypography-colorTextPrimary"
   >
-    dummy item name
-     
-    x
-    1
+    dummy item name x 1
   </h5>
 </div>
 `;

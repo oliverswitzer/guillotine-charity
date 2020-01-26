@@ -12,13 +12,7 @@ import styles from './styles';
 
 export const BezosHeaderRaw = ({ classes }) => (
   <Paper className={classes.paper}>
-    <Grid
-      container
-      spacing={3}
-      direction="column"
-      justify="center"
-      alignItems="center"
-    >
+    <Grid container spacing={3} direction="column" justify="center" alignItems="center">
       <Grid item xs={12}>
         <Avatar alt="Jeff Bezos" src="/images/bezos.jpg" className={classes.avatar} />
       </Grid>
@@ -32,7 +26,7 @@ export const BezosHeaderRaw = ({ classes }) => (
 );
 
 BezosHeaderRaw.propTypes = {
-    classes: PropTypes.objectOf(PropTypes.string).isRequired,
+  classes: PropTypes.objectOf(PropTypes.string).isRequired
 };
 
 export default withStyles(styles)(BezosHeaderRaw);

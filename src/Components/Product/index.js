@@ -19,7 +19,7 @@ export class ProductRaw extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      quantity: 0,
+      quantity: 0
     };
   }
 
@@ -29,25 +29,31 @@ export class ProductRaw extends React.Component {
     const { item, onTradedItem } = this.props;
     const { quantity } = this.state;
     const itemTraded = {
-        ...item,
-        quantity,
+      ...item,
+      quantity
     };
     onTradedItem(itemTraded);
   };
 
   onChangeQuantity = event => {
-    if( event.target.value > 0 ) {
-      this.setState({
-        quantity: Number(event.target.value),
-      }, this.onProductUpdated);
+    if (event.target.value > 0) {
+      this.setState(
+        {
+          quantity: Number(event.target.value)
+        },
+        this.onProductUpdated
+      );
     }
   };
 
-  onButtonClick = (value) => () => {
+  onButtonClick = value => () => {
     const { quantity } = this.state;
-    this.setState({
-      quantity: quantity + value,
-    }, this.onProductUpdated);
+    this.setState(
+      {
+        quantity: quantity + value
+      },
+      this.onProductUpdated
+    );
   };
 
   render() {
@@ -56,11 +62,7 @@ export class ProductRaw extends React.Component {
     const enableSellButton = quantity === 0;
     return (
       <Card className={classes.card}>
-        <CardMedia 
-          image={item.image}
-          title={item.name}
-          className={classes.cardMedia}
-        />
+        <CardMedia image={item.image} title={item.name} className={classes.cardMedia} />
         <CardContent className={classes.cardContent}>
           <Typography variant="h5" component="h2">
             {item.name}
@@ -70,15 +72,15 @@ export class ProductRaw extends React.Component {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button 
-            size="medium" 
-            color="secondary" 
-            onClick={this.onButtonClick(-1)} 
+          <Button
+            size="medium"
+            color="secondary"
+            onClick={this.onButtonClick(-1)}
             disabled={enableSellButton}
           >
-              Sell
+            Sell
           </Button>
-          <Input 
+          <Input
             className={classes.input}
             type="number"
             label="quantity"
@@ -88,27 +90,23 @@ export class ProductRaw extends React.Component {
             value={quantity}
             onChange={this.onChangeQuantity}
           />
-          <Button 
-            size="medium" 
-            color="primary" 
-            onClick={this.onButtonClick(1)}
-          >
-              Buy
+          <Button size="medium" color="primary" onClick={this.onButtonClick(1)}>
+            Buy
           </Button>
         </CardActions>
       </Card>
     );
   }
-};
+}
 
 ProductRaw.propTypes = {
-    classes: PropTypes.objectOf(PropTypes.string).isRequired,
-    item: PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        price: PropTypes.number.isRequired,
-        image: PropTypes.string.isRequired,
-    }).isRequired,
-    onTradedItem: PropTypes.func.isRequired,
+  classes: PropTypes.objectOf(PropTypes.string).isRequired,
+  item: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    image: PropTypes.string.isRequired
+  }).isRequired,
+  onTradedItem: PropTypes.func.isRequired
 };
 
 export default withStyles(styles)(ProductRaw);

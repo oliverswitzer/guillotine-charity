@@ -1,3 +1,3 @@
 export default {
-    useNextVariants: true,
+  useNextVariants: true
 };

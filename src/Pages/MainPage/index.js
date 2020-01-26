@@ -12,12 +12,7 @@ import products from '../../Products';
 import Components from '../../Components';
 // -------
 
-const {
-  BezosHeader,
-  MoneyLeftWrapper,
-  Product,
-  TradedItem,
-} = Components;
+const { BezosHeader, MoneyLeftWrapper, Product, TradedItem } = Components;
 
 // We export it for the unit tests.
 export const BEZOS_NET_WORTH = 115500000000;
@@ -27,43 +22,45 @@ export class MainPageRaw extends React.Component {
     super(props);
     this.state = {
       moneyLeft: BEZOS_NET_WORTH,
-      tradedItems: [],
+      tradedItems: []
     };
   }
 
   onComputeMoneyLeft = () => {
     this.setState({
-      moneyLeft: BEZOS_NET_WORTH - this.totalMoneySpent(),
+      moneyLeft: BEZOS_NET_WORTH - this.totalMoneySpent()
     });
   };
 
-  onTradedItem = (item) => {
+  onTradedItem = item => {
     const { tradedItems } = this.state;
     const index = tradedItems.findIndex(availableItem => availableItem.id === item.id);
 
     if (this.cannotFindItem(item)) {
-      this.setState({
-        tradedItems: [...tradedItems, item],
-      }, this.onComputeMoneyLeft);
+      this.setState(
+        {
+          tradedItems: [...tradedItems, item]
+        },
+        this.onComputeMoneyLeft
+      );
     } else if (this.itemAlreadyPurchased(item)) {
-      this.setState({
-        tradedItems: [
-          ...tradedItems.slice(0, index),
-          item,
-          ...tradedItems.slice(index + 1)
-        ],
-      }, this.onComputeMoneyLeft);
+      this.setState(
+        {
+          tradedItems: [...tradedItems.slice(0, index), item, ...tradedItems.slice(index + 1)]
+        },
+        this.onComputeMoneyLeft
+      );
     } else {
-      this.setState({
-        tradedItems: [
-          ...tradedItems.slice(0, index),
-          ...tradedItems.slice(index + 1)
-        ],
-      }, this.onComputeMoneyLeft);
+      this.setState(
+        {
+          tradedItems: [...tradedItems.slice(0, index), ...tradedItems.slice(index + 1)]
+        },
+        this.onComputeMoneyLeft
+      );
     }
   };
 
-  itemAlreadyPurchased = (item) => {
+  itemAlreadyPurchased = item => {
     return item.quantity !== 0;
   };
 
@@ -88,32 +85,21 @@ export class MainPageRaw extends React.Component {
     const { moneyLeft, tradedItems } = this.state;
     return (
       <div className={classes.root}>
-        <BezosHeader/>
-        <MoneyLeftWrapper moneyLeft={moneyLeft}/>
+        <BezosHeader />
+        <MoneyLeftWrapper moneyLeft={moneyLeft} />
         {/* Items */}
         <Grid container spacing={4}>
           {products.map(product => (
             <Grid item key={product.id} xs={12} sm={6} md={4}>
-              <Product item={product} onTradedItem={this.onTradedItem}/>
+              <Product item={product} onTradedItem={this.onTradedItem} />
             </Grid>
           ))}
         </Grid>
         {/* Traded Items */}
         <Paper className={classes.paper}>
-          <Grid
-            container
-            spacing={3}
-            direction="column"
-            justify="center"
-            alignItems="center"
-          >
+          <Grid container spacing={3} direction="column" justify="center" alignItems="center">
             <Grid item xs={12}>
-              <Typography
-                component="h3"
-                variant="h5"
-                align="center"
-                color="textPrimary"
-              >
+              <Typography component="h3" variant="h5" align="center" color="textPrimary">
                 Your Shopping Cart
               </Typography>
             </Grid>
@@ -121,7 +107,7 @@ export class MainPageRaw extends React.Component {
               <Grid container>
                 {tradedItems.map(tradedItem => (
                   <Grid item xs={12} sm={6} md={3} key={tradedItem.id}>
-                    <TradedItem item={tradedItem}/>
+                    <TradedItem item={tradedItem} />
                   </Grid>
                 ))}
               </Grid>
@@ -134,7 +120,7 @@ export class MainPageRaw extends React.Component {
 }
 
 MainPageRaw.propTypes = {
-  classes: PropTypes.objectOf(PropTypes.string).isRequired,
+  classes: PropTypes.objectOf(PropTypes.string).isRequired
 };
 
 export default withStyles(styles)(MainPageRaw);

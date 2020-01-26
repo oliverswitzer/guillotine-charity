@@ -18,8 +18,8 @@ export const MoneyLeftWrapperRaw = ({ classes, moneyLeft }) => (
 );
 
 MoneyLeftWrapperRaw.propTypes = {
-    classes: PropTypes.objectOf(PropTypes.string).isRequired,
-    moneyLeft: PropTypes.number.isRequired,
+  classes: PropTypes.objectOf(PropTypes.string).isRequired,
+  moneyLeft: PropTypes.number.isRequired
 };
 
 export default withStyles(styles)(MoneyLeftWrapperRaw);
