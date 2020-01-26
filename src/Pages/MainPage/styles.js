@@ -9,6 +9,8 @@ export default () => ({
     }
   },
   paper: {
+    position: 'sticky',
+    bottom: 0,
     padding: '2%',
     marginTop: 15,
     marginBottom: 10
