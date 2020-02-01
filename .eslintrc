@@ -4,6 +4,7 @@
     "rules": {
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
         "react/jsx-props-no-spreading": 0,
+        "no-use-before-define": "off"
     },
     "env": {
         "jest/globals": true,
