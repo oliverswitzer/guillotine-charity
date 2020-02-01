@@ -12,7 +12,7 @@ import Charities from '../../Data/Charities';
 export const BEZOS_NET_WORTH = 115500000000;
 
 export const MainPageRaw = ({ classes }) => {
-  const [guillotineMode, setGuillotineMode] = useState(true);
+  const [guillotineMode, setGuillotineMode] = useState(false);
   const lineItems = guillotineMode ? Charities : Products;
   return (
     <div>

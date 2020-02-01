@@ -5,7 +5,6 @@ import { withStyles } from '@material-ui/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import styles from './styles';
 
 import Components from '../../Components';
 // -------
@@ -125,4 +124,4 @@ ShoppingExperienceRaw.propTypes = {
   lineItems: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
-export default withStyles(styles)(ShoppingExperienceRaw);
+export default withStyles({})(ShoppingExperienceRaw);
